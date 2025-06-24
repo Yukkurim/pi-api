@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>π API 公式サイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at center, #000 0%, #111 100%);
+      color: #0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #0f0;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+
+    .terms {
+      background: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 600px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      border-left: 4px solid #0f0;
+    }
+
+    label {
+      margin: 1rem 0;
+      font-size: 1rem;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 0.5rem;
+    }
+
+    button {
+      background: #0f0;
+      color: #000;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #1f1;
+    }
+
+    #api-url {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      word-break: break-all;
+      background: #000;
+      padding: 1rem;
+      border: 1px dashed #0f0;
+      border-radius: 8px;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      p, .terms { font-size: 0.95rem; }
+      button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>円周率API (π API)</h1>
+  <p>このAPIは、URLに指定した桁数に応じて円周率（最大1000桁）を返す、<strong>疑似RESTful API</strong>です。</p>
+
+  <div class="terms">
+    <strong>利用規約：</strong><br>
+    本APIは教育・実験目的でのみ使用可能です。<br>
+    過度なアクセスや商用利用は禁止されています。<br>
+    利用者は自己責任のもとで本APIを利用するものとします。
+  </div>
+
+  <label><input type="checkbox" id="agree"> 利用規約に同意します</label><br>
+
+  <button id="get-url" disabled>API URL を表示</button>
+
+  <div id="api-url">
+    APIエンドポイント：<br>
+    <code><span id="url-text">https://your-username.github.io/piapi/api?j?桁数</span></code>
+    <br><br>
+    例：<br>
+    <code>https://your-username.github.io/piapi/api?j?100</code>
+  </div>
+
+  <script>
+    const agreeCheckbox = document.getElementById('agree');
+    const button = document.getElementById('get-url');
+    const apiUrl = document.getElementById('api-url');
+
+    agreeCheckbox.addEventListener('change', () => {
+      button.disabled = !agreeCheckbox.checked;
+    });
+
+    button.addEventListener('click', () => {
+      apiUrl.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
