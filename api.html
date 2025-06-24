@@ -58,7 +58,7 @@
 "0302861829745557067498350549458858692699569092721079750930295532116534498720275596023648066549911988" +
 "1834797753566369807426542527862551818417574672890977772793800081647060016145249192173217214772350141";
 
-  const query = location.search; // "?j?X"
+  const query = location.search; // ?j?数字 例:?j?5
   const match = query.match(/j\?(\d+)/);
   const requestedLength = match ? parseInt(match[1], 10) : NaN;
 
@@ -80,3 +80,4 @@
 </script>
 </body>
 </html>
+
